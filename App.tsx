@@ -1,14 +1,12 @@
 
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import HomeScreen from './src/screens/HomeScreen';
-import ProfileScreen from './src/screens/ProfileScreen';
+import AppNav from './src/navigations'
 
 function App() {
   return (
     <SafeAreaProvider style={styles.container}>
-      <HomeScreen />
-      <ProfileScreen />
+      <AppNav />
     </SafeAreaProvider>
   );
 }
@@ -16,9 +14,9 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,                // Takes up the full screen height
-    backgroundColor: '#fff', // White background
-    justifyContent: 'center', // Centers content vertically
-    alignItems: 'center',     // Centers content horizontally
+    // backgroundColor: '#fff', // White background
+    // justifyContent: 'center', // Centers content vertically
+    // alignItems: 'center',     // Centers content horizontally
   },
 });
 
