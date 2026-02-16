@@ -1,5 +1,6 @@
 export default {
   // [Object]: Attribute
   HOME: "Home",
-  PROFILE: "Profile"
+  PROFILE: "Profile",
+  LOGIN: "Login"
 } 
