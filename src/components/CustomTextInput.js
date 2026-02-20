@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-export default function CustomTextInput({label,placeholder,onChangeText,textStyle,TextInputStyle}) {
+export default function CustomTextInput({containerStyle,label,placeholder,onChangeText,labelStyle,TextInputStyle}) {
   return (
-    <View>
+    <View
+      style={containerStyle}
+    >
       <Text
-        style={textStyle}
+        style={labelStyle}
       >{label}</Text>
       <TextInput
         placeholder={placeholder}
