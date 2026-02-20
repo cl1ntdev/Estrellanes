@@ -8,8 +8,7 @@ import { ROUTES } from '../utils';
 
 export default function MainNavigation () {
     return (
-      <Stack.Navigator initialRouteName={ROUTES.LOGIN}>
-        <Stack.Screen name={ROUTES.LOGIN} component={Login} />
+      <Stack.Navigator initialRouteName={ROUTES.HOME}>
         <Stack.Screen name={ROUTES.HOME} component={HomeScreen} />
         <Stack.Screen name={ROUTES.PROFILE} component={ProfileScreen} />
       </Stack.Navigator>
