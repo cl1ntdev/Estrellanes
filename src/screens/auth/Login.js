@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import { Text, View,Button } from 'react-native';
+import { Text, View, TouchableOpacity, Alert } from 'react-native';
 import CustomeTextInput from '../../components/CustomTextInput';
 import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../../utils';
-import CustomButton from '../../components/CustomButton'
+import CustomButton from '../../components/CustomButton';
 
 export default function Login() {
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
-  const navigation = useNavigation()
 
+  const navigation = useNavigation();
 
   return (
     <View
@@ -22,32 +20,50 @@ export default function Login() {
         height: '100%',
       }}
     >
-      
-      <Text>{ username || "Empty " }</Text>
-      <Text>{ password  || "Empty " }</Text>
-      
-      <CustomeTextInput
-        label={"Username"}
-        placeholder={"Enter your username"}
-        onChangeText={setUsername}
-        textStyle={{ color: 'black' }}
-        TextInputStyle={{
-          borderWidth: 1,
-          borderColor: 'gray',
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '20%',
+          // borderWidth: 1,
+          width: '100%',
+          paddingHorizontal: 20,
+          marginBottom: 20,
         }}
-      />
-      
-      <CustomeTextInput
-        label={"Password"}
-        placeholder={"Enter your Password"}
-        onChangeText={setUsername}
-        textStyle={{ color: 'black' }}
-        TextInputStyle={{
-          borderWidth: 1,
-          borderColor: 'gray',
-        }}
-      />
-      
+      >
+        <CustomeTextInput
+          label={'Enter Username'}
+          placeholder={'Enter your username'}
+          onChangeText={setUsername}
+          labelStyle={{ color: 'black' }}
+          TextInputStyle={{
+            borderBottomWidth: 1,
+            color: 'black',
+            // borderWidth: 1,
+            // borderColor: 'gray',
+          }}
+          containerStyle={{
+            width: '100%',
+          }}
+        />
+
+        <CustomeTextInput
+          label={'Enter Password'}
+          placeholder={'Enter your Password'}
+          onChangeText={setPassword}
+          labelStyle={{ color: 'black' }}
+          TextInputStyle={{
+            borderBottomWidth: 1,
+            color: 'black',
+            // borderWidth: 1,
+            // borderColor: 'gray',
+          }}
+          containerStyle={{
+            width: '100%',
+          }}
+        />
+      </View>
+
       <View
         style={{
           flexDirection: 'column',
@@ -57,30 +73,40 @@ export default function Login() {
           marginTop: 20,
         }}
       >
-        <Button
-          title='Navigate To Home'
-          onPress={() => navigation.navigate(ROUTES.HOME)}
-          style={{
-            marginBottom: 10,
-          }}
-        />
-        <Button
-          title='Navigate To Profle'
-          onPress={()=>navigation.navigate(ROUTES.PROFILE)}
-        />
-        
         <CustomButton
-          label={"Home"}
-          mainStyle={{
-            alignItems: "center",
-            justifyContent: "center",
-            color: 'blue',
-            background: 'yellow'
+          label={'Login'}
+          containerStyle={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#0377FF',
+            padding: 10,
+            borderRadius: 20,
           }}
-          route={ROUTES.HOME}
+          textStyle={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+          }}
+          onPress={() => {
+            Alert.alert('Credentials', `u: ${username} p: ${password} `);
+          }}
         />
       </View>
-      
+
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Text>Create an account? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate(ROUTES.REGISTER)}>
+          <Text style={{ color: 'red', marginLeft: 10, fontWeight: 'bold' }}>
+            Register
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
