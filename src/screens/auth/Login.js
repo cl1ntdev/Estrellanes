@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, Alert } from 'react-native';
+import { Text, View, TouchableOpacity, Alert, Image } from 'react-native';
 import CustomeTextInput from '../../components/CustomTextInput';
 import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../../utils';
+import { IMG } from '../../utils';
 import CustomButton from '../../components/CustomButton';
 
 export default function Login() {
@@ -20,6 +21,15 @@ export default function Login() {
         height: '100%',
       }}
     >
+      
+      <Image
+        source={IMG.LOGO}
+        style={{
+          width: '30%',
+          height: '13%',
+          margin: '20',
+        }}
+      />
       <View
         style={{
           alignItems: 'center',
